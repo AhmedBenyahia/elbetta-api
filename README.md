@@ -1,2 +1,2 @@
-# elbetta
-This repo is part of personnel project
+# elbetta backend api
+This repo is part of class project 

@@ -118,34 +118,7 @@
 			name="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck">
 			<property name="processJavadoc" value="true" />
 		</module>
-		<module
-			name="com.puppycrawl.tools.checkstyle.checks.imports.ImportOrderCheck">
-			<property name="groups" value="java,/^javax?\./,*" />
-			<property name="ordered" value="false" />
-			<property name="separated" value="true" />
-			<property name="option" value="bottom" />
-			<property name="sortStaticImportsAlphabetically" value="true" />
-		</module>
 
-		<!-- Javadoc Comments -->
-		<module
-			name="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocTypeCheck">
-			<property name="scope" value="package" />
-			<property name="authorFormat" value=".+\s.+" />
-			<property name="severity" value="ignore" />
-		</module>
-		<module
-			name="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocMethodCheck">
-			<property name="allowMissingJavadoc" value="false" />
-		</module>
-		<module
-			name="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocVariableCheck">
-			<property name="scope" value="public" />
-		</module>
-		<module
-			name="com.puppycrawl.tools.checkstyle.checks.javadoc.JavadocStyleCheck">
-			<property name="checkEmptyJavadoc" value="true" />
-		</module>
 		<module
 			name="com.puppycrawl.tools.checkstyle.checks.javadoc.NonEmptyAtclauseDescriptionCheck" />
 		<module

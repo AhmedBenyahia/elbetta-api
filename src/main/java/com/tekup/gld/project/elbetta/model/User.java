@@ -1,6 +1,5 @@
 package com.tekup.gld.project.elbetta.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,12 +20,13 @@ public class User implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	@Column(name = "username")
 	private String username;
 
-	@Column(name = "password")
 	private String password;
 
-	@Column(name = "roles")
+	// Comma separated list of roles
 	private String roles;
+
+	private Boolean active;
+
 }

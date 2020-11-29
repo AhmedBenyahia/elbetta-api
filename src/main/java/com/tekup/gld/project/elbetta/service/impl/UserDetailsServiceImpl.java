@@ -2,10 +2,12 @@ package com.tekup.gld.project.elbetta.service.impl;
 
 import java.util.Optional;
 
+import com.tekup.gld.project.elbetta.model.EBUserDetails;
 import com.tekup.gld.project.elbetta.model.User;
 import com.tekup.gld.project.elbetta.repository.UserRepository;
-import com.tekup.gld.project.elbetta.service.UserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -24,13 +26,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	@Autowired
 	private UserRepository userRepository;
 
-
 	@Override
-	public Optional<User> loadUserByUsernameAndActive(String userName, boolean active) throws UsernameNotFoundException {
-		Optional<User> user = userRepository.findByUsername(userName);
-		if (!user.isPresent()) {
-			throw new UsernameNotFoundException(userName);
-		}
-		return user;
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		Optional<User> user = userRepository.findByUsername(username);
+		user.orElseThrow(() -> new UsernameNotFoundException(username));
+		return new EBUserDetails(user.get());
 	}
 }

@@ -32,11 +32,12 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 //				.antMatchers("/api/**").authenticated()
 //				.antMatchers("/auth/**").permitAll()
 				.and().formLogin();
+		http.csrf().disable();
 	}
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		// Set your configuration on the auth onject
+		// Set your configuration on the auth object
 		auth.userDetailsService(userDetailsService);
 	}
 
@@ -50,6 +51,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Bean
 	public PasswordEncoder getPasswordEncoder() {
+		//TODO: This needs to be improved
 		return NoOpPasswordEncoder.getInstance();
 	}
 }

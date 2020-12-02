@@ -43,7 +43,7 @@ public class TestController {
 	{
 		return service.getUserById(id);
 	}
-	@PostMapping
+	@PostMapping("/create")
 	public User createUser(@RequestBody User user) 
 	{
 		return service.createUser(user);
@@ -56,7 +56,7 @@ public class TestController {
 	}
 	
 	@DeleteMapping("/{id}")
-	public User deleteUser(@PathVariable("id")long id)
+	public User deleteUser(@PathVariable("id")Long id)
 	{
 		return service.deleteUser(id);
 	}

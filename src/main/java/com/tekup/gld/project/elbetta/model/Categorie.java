@@ -7,21 +7,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.GeneratorType;
-
 import lombok.Data;
 
 @Entity
 @Data
-@Table(name="categories")
+@Table(name = "categories")
 public class Categorie {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="id")
+	@Column(name = "id")
 	private Long id;
-	@Column(name="name")
+	@Column(name = "name")
 	private String name;
-	@Column(name="description")
+	@Column(name = "description")
 	private String description;
 
 }

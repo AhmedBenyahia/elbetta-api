@@ -9,9 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 
-
 @Entity
-@Table(name="feedbacks")
+@Table(name = "feedbacks")
 
 public class FeedBack {
 	@Id
@@ -20,8 +19,6 @@ public class FeedBack {
 	private LocalDate date;
 	private String description;
 	private int score;
-	
-	
-	
+
 
 }

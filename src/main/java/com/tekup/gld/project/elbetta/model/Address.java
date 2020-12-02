@@ -1,27 +1,18 @@
 package com.tekup.gld.project.elbetta.model;
 
-import java.io.Serializable;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name="address")
+@Table(name = "address")
 public class Address {
 
 	@Id
@@ -29,14 +20,14 @@ public class Address {
 	private int id;
 
 	private int number;
-	
+
 	private String street;
-	
+
 	private String city;
 	/*@Column(name="adressUser")
 	@OneToOne
 	private User user;*/
-	
+
 	public int getId() {
 		return id;
 	}
@@ -75,7 +66,7 @@ public class Address {
 		this.number = number;
 		this.street = street;
 		this.city = city;
-		
+
 	}
 
 }

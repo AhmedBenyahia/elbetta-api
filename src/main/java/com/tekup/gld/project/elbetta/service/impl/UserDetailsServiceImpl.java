@@ -32,6 +32,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		user.orElseThrow(() -> new UsernameNotFoundException(username));
 		return new EBUserDetails(user.get());
 	}
+
 	public void save(User user) {
-        userRepository.save(user);
-}}
+		userRepository.save(user);
+	}
+}

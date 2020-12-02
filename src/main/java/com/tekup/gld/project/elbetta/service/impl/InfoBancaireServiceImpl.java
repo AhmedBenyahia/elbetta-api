@@ -3,23 +3,21 @@ package com.tekup.gld.project.elbetta.service.impl;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
+import com.tekup.gld.project.elbetta.model.InfoBancaire;
+import com.tekup.gld.project.elbetta.repository.InfoBancaireRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.tekup.gld.project.elbetta.model.InfoBancaire;
-import com.tekup.gld.project.elbetta.model.User;
-import com.tekup.gld.project.elbetta.repository.InfoBancaireRepository;
-import com.tekup.gld.project.elbetta.repository.UserRepository;
 @Service
 public class InfoBancaireServiceImpl implements InfoBancaireService {
-	
+
 	private InfoBancaireRepository repoInfo;
-	
+
 	@Autowired
 	public InfoBancaireServiceImpl(InfoBancaireRepository repoInfo) {
 		super();
 		this.repoInfo = repoInfo;
-	
+
 	}
 
 
@@ -40,18 +38,20 @@ public class InfoBancaireServiceImpl implements InfoBancaireService {
 	public InfoBancaire modifInfo(InfoBancaire newInfo) {
 		// TODO Auto-generated method stub
 		return repoInfo.save(newInfo);
-		
+
 	}
 
 	@Override
 	public InfoBancaire getInfoById(Long id) {
-			Optional<InfoBancaire>opt=repoInfo.findById(id);
-			InfoBancaire infobancaire;
-			if(opt.isPresent())
-				infobancaire=opt.get();
-			else 
-				throw new NoSuchElementException("Info with this id is not found");
-			return infobancaire;
+		Optional<InfoBancaire> opt = repoInfo.findById(id);
+		InfoBancaire infobancaire;
+		if (opt.isPresent()) {
+			infobancaire = opt.get();
+		}
+		else {
+			throw new NoSuchElementException("Info with this id is not found");
+		}
+		return infobancaire;
 	}
 
 	@Override
@@ -60,6 +60,6 @@ public class InfoBancaireServiceImpl implements InfoBancaireService {
 		repoInfo.deleteById(id);
 		return entity;
 	}
-	}
+}
 
 

@@ -1,20 +1,17 @@
 package com.tekup.gld.project.elbetta.model;
 
-import java.time.LocalDate;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.GeneratorType;
+import java.time.LocalDate;
 
 import lombok.Data;
 
 @Entity
 @Data
-@Table(name="stores")
+@Table(name = "stores")
 public class Store {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

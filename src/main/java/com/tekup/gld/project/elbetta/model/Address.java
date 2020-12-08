@@ -1,9 +1,13 @@
 package com.tekup.gld.project.elbetta.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -24,9 +28,10 @@ public class Address {
 	private String street;
 
 	private String city;
-	/*@Column(name="adressUser")
-	@OneToOne
-	private User user;*/
+
+	@ManyToOne
+	@JoinColumn(name = "article_id", nullable = false)
+	private User user;
 
 	public int getId() {
 		return id;

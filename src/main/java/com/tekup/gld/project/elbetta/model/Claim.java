@@ -12,24 +12,22 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-
-
-
 @Entity
 @Data
-@Table(name = "feedbacks")
-@NoArgsConstructor
 @AllArgsConstructor
-
-
-public class FeedBack {
+@NoArgsConstructor
+@Table(name="claim")
+public class Claim {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
 	private LocalDate date;
+	
 	private String description;
-	private int score;
-
+	
+	private String objective;
+	
 
 }

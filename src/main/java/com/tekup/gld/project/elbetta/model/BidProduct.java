@@ -1,7 +1,4 @@
 package com.tekup.gld.project.elbetta.model;
-
-import java.time.LocalDate;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,21 +12,30 @@ import lombok.NoArgsConstructor;
 
 
 
-
 @Entity
 @Data
-@Table(name = "feedbacks")
 @NoArgsConstructor
 @AllArgsConstructor
-
-
-public class FeedBack {
+@Table(name = "bidProduct")
+public class BidProduct extends Product {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private LocalDate date;
+	
+	private String name;
+	
 	private String description;
-	private int score;
+	
+	private String model;
+	
+	private String specification;
+	
+	private float starPrice;
+	
+	//de type user
+	private String higherBidder;
+	
+	private Float currentPrice;
 
 
 }

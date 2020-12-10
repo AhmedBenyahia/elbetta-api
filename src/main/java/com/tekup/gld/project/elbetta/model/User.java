@@ -1,5 +1,4 @@
 package com.tekup.gld.project.elbetta.model;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -15,11 +14,11 @@ import java.util.Set;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 @Entity
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
+
 @Table(name = "users")
 public class User {
 
@@ -29,23 +28,22 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	@Column(name = "username", length = 50, nullable = false)
 	private String username;
 
-	@Column(name = "email")
 	private String email;
 
-	@Column(name = "password")
+
 	private String password;
 
 	private LocalDate dateOfBirth;
 
 	// Comma separated list of roles
-	@Column(name = "roles")
+	
 	private String roles;
 
-	@Column(name = "active")
+
 	private Boolean active;
+
 
 	private String TelephoneNumber;
 
@@ -53,8 +51,6 @@ public class User {
 	@OneToMany(fetch = FetchType.EAGER, targetEntity = Address.class)
 	private Set<Address> address;
 
-//	@Column(name = "gender")
-//	private String gender;
 
 	@JoinColumn(name = "user_id")
 	@OneToMany(fetch = FetchType.EAGER, targetEntity = InfoBancaire.class)

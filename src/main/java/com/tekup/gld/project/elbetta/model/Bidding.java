@@ -14,22 +14,25 @@ import lombok.NoArgsConstructor;
 
 
 
-
-
 @Entity
 @Data
-@Table(name = "feedbacks")
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "bidding")
 
 
-public class FeedBack {
+	
+public class Bidding {
+	
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	
 	private LocalDate date;
-	private String description;
-	private int score;
-
+	
+	private float price;
+	
+	private float maxbid;
 
 }

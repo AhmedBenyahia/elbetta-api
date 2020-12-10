@@ -12,24 +12,21 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-
-
-
 @Entity
 @Data
-@Table(name = "feedbacks")
 @NoArgsConstructor
 @AllArgsConstructor
-
-
-public class FeedBack {
+@Table(name = "recipe")
+public class Recipe {
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private LocalDate date;
-	private String description;
-	private int score;
-
+	
+	private LocalDate  creation;
+	
+	private boolean payed;
+	
+	private boolean delivred;
 
 }

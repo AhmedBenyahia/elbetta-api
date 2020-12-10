@@ -33,7 +33,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		return new EBUserDetails(user.get());
 	}
 
-	public void save(User user) {
+	/*public void save(User user) {
 		userRepository.save(user);
-	}
+	}*/
 }

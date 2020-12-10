@@ -14,22 +14,22 @@ import lombok.NoArgsConstructor;
 
 
 
-
-
 @Entity
 @Data
-@Table(name = "feedbacks")
-@NoArgsConstructor
 @AllArgsConstructor
-
-
-public class FeedBack {
+@NoArgsConstructor
+@Table(name = "product")
+public class PromCode {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-	private LocalDate date;
-	private String description;
-	private int score;
-
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;  
+	
+	private String code;
+	//creationdate de recipe
+	private LocalDate creationDate;
+	
+	private LocalDate expirationDate;
+	
+	private boolean isRedeem;
 
 }

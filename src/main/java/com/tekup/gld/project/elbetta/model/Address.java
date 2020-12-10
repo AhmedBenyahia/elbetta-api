@@ -7,12 +7,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "address")
 public class Address {
@@ -35,42 +36,7 @@ public class Address {
 		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
 
-	public int getNumber() {
-		return number;
-	}
-
-	public void setNumber(int number) {
-		this.number = number;
-	}
-
-	public String getStreet() {
-		return street;
-	}
-
-	public void setStreet(String street) {
-		this.street = street;
-	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public Address(int id, int number, String street, String city) {
-		super();
-		this.id = id;
-		this.number = number;
-		this.street = street;
-		this.city = city;
-
-	}
 
 }
 

@@ -22,21 +22,17 @@ public class Address {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	private int number;
+	private String postalCode;
 
-	private String street;
+	private String fullAddress;
 
 	private String city;
 
+	private String country;
+
 	@ManyToOne
-	@JoinColumn(name = "article_id", nullable = false)
+	@JoinColumn(name = "user_id", nullable = false)
 	private User user;
-
-	public int getId() {
-		return id;
-	}
-
-
 
 }
 

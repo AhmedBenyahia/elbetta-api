@@ -46,8 +46,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User createUser(User user) {
-			
-		
+		user.setRoles("USER");
 		return reposUser.save(user);
 	}
 

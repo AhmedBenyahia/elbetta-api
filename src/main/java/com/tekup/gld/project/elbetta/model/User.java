@@ -1,5 +1,5 @@
 package com.tekup.gld.project.elbetta.model;
-import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -30,22 +30,22 @@ public class User {
 
 	private String username;
 
-	private String email;
+	private String firstname;
 
+	private String lastname;
+
+	private String email;
 
 	private String password;
 
 	private LocalDate dateOfBirth;
 
 	// Comma separated list of roles
-	
 	private String roles;
-
 
 	private Boolean active;
 
-
-	private String TelephoneNumber;
+	private String telephoneNumber;
 
 	@JoinColumn(name = "user_id")
 	@OneToMany(fetch = FetchType.EAGER, targetEntity = Address.class)

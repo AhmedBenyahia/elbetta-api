@@ -26,7 +26,7 @@ public class EBUserDetails implements UserDetails {
 	public EBUserDetails(User user) {
 		this.username = user.getUsername();
 		this.password = user.getPassword();
-		this .active = user.getActive();
+		this.active = user.getActive();
 		this.authorities = Arrays.stream(user.getRoles().split(","))
 				.map(role -> new SimpleGrantedAuthority("ROLE_" + role))
 				.collect(Collectors.toList());

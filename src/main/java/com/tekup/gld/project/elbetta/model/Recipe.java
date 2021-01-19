@@ -12,11 +12,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
+//@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "recipe")
+//@Table(name = "recipe")
 public class Recipe {
 	
 	@Id

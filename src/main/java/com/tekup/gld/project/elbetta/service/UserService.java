@@ -1,5 +1,6 @@
-package com.tekup.gld.project.elbetta.service.impl;
+package com.tekup.gld.project.elbetta.service;
 
+import java.security.Principal;
 import java.util.List;
 
 import com.tekup.gld.project.elbetta.model.User;
@@ -22,7 +23,7 @@ public interface UserService {
 	 * @param id the id
 	 * @return the user by id
 	 */
-	User getUserById(long id);
+	User getUserById(Long id);
 
 	/**
 	 * Create user user.
@@ -36,9 +37,8 @@ public interface UserService {
 	 * Delete user user.
 	 *
 	 * @param id the id
-	 * @return the user
 	 */
-	User deleteUser(long id);
+	void deleteUser(Long id);
 
 	/**
 	 * Modify user user.
@@ -49,7 +49,10 @@ public interface UserService {
 	User modifyUser(User newUser);
 
 
-	
-	
-
+	/**
+	 * Gets user by username.
+	 *
+	 * @return the user by username
+	 */
+	User getUserByUsername(String username);
 }

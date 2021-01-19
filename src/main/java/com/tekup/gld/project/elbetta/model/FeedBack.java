@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 
 
 
-@Entity
+//@Entity
 @Data
 @Table(name = "feedbacks")
 @NoArgsConstructor

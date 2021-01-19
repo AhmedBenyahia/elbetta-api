@@ -14,11 +14,11 @@ import lombok.NoArgsConstructor;
 
 
 
-@Entity
+//@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "bidding")
+//@Table(name = "bidding")
 
 
 	

@@ -10,11 +10,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
+//@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="pourcentage")
+//@Table(name="pourcentage")
 public class PourcentageC {
 	
 	

@@ -1,4 +1,4 @@
-package com.tekup.gld.project.elbetta.service.impl;
+package com.tekup.gld.project.elbetta.service;
 
 import java.util.List;
 

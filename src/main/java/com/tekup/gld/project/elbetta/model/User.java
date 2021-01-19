@@ -11,18 +11,21 @@ import javax.persistence.Table;
 import java.time.LocalDate;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 @Entity
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-
 @Table(name = "users")
 public class User {
-
-	private static final long serialVersionUID = -7384470937964519004L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -56,5 +59,13 @@ public class User {
 	@OneToMany(fetch = FetchType.EAGER, targetEntity = InfoBancaire.class)
 	private Set<InfoBancaire> infoBanks;
 
+	@JoinColumn(name = "owner_id")
+	@OneToMany(fetch = FetchType.LAZY)
+	@JsonIgnore
+	private Set<Store> stores;
+
+	public User(Long id) {
+		this.id = id;
+	}
 }
 

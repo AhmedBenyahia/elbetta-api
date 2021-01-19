@@ -13,7 +13,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Data
 public class EBUserDetails implements UserDetails {
 
-
+	private Long id;
 	private String username;
 	private String password;
 	// Comma separated list of roles
@@ -24,6 +24,7 @@ public class EBUserDetails implements UserDetails {
 	}
 
 	public EBUserDetails(User user) {
+		this.id = user.getId();
 		this.username = user.getUsername();
 		this.password = user.getPassword();
 		this.active = user.getActive();

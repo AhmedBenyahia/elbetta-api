@@ -3,9 +3,9 @@ package com.tekup.gld.project.elbetta.controller;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-import com.tekup.gld.project.elbetta.model.User;
-import com.tekup.gld.project.elbetta.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.tekup.gld.project.elbetta.model.Product;
+import com.tekup.gld.project.elbetta.service.ProductService;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -20,49 +20,52 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * {@link UserController } class.
+ * {@link ProductController } class.
  *
  * @author AhmedBenyahia
  * @since 0.0.1
  */
 @RestController
-@RequestMapping("/api/user")
-public class UserController {
+@RequestMapping("/product")
+@AllArgsConstructor
+public class ProductController {
 
 	/**
-	 * The User service.
+	 * The Product service.
 	 */
-	@Autowired
-	private UserService userService;
+	private final ProductService productService;
 
 	@GetMapping("/get")
 	@PreAuthorize("hasRole('ADMIN')")
-	public List<User> getAll() {
-		return userService.getAllUsers();
-	}
-
-	@GetMapping("/get/{id}")
-	public User getById(@PathVariable("id") Long id) {
-		return userService.getUserById(id);
-	}
-
-
-	@PostMapping("/create")
-	public User createUser(@RequestBody User user) {
-		return userService.createUser(user);
+	public List<Product> getAll() {
+		return productService.getAllProducts();
 	}
 
 	@PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
-	@PutMapping("/update/{id}")
-	public User modifyUser(@RequestBody User newUser) {
-		return userService.modifyUser(newUser);
+	@GetMapping("/get/{id}")
+	public Product getById(@PathVariable("id") Long id) {
+		return productService.getProductById(id);
+	}
+
+
+	@PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
+	@PostMapping("/create")
+	public Product createProduct(@RequestBody Product product) {
+		return productService.createOrUpdateProduct(product);
+	}
+
+	@PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
+	@PutMapping("/update")
+	public Product modifyProduct(@RequestBody Product product) {
+		return productService.createOrUpdateProduct(product);
 	}
 
 	@PreAuthorize("hasRole('ADMIN')")
 	@DeleteMapping("/delete/{id}")
-	public void deleteUser(@PathVariable("id") Long id) {
-		userService.deleteUser(id);
+	public void deleteProduct(@PathVariable("id") Long id) {
+		productService.deleteProduct(id);
 	}
+
 	@ExceptionHandler(NoSuchElementException.class)
 	public ResponseEntity<String> handleNoSuchElementException(NoSuchElementException e) {
 		return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);

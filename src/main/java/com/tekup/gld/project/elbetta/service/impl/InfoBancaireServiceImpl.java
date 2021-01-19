@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import com.tekup.gld.project.elbetta.model.InfoBancaire;
 import com.tekup.gld.project.elbetta.repository.InfoBancaireRepository;
+import com.tekup.gld.project.elbetta.service.InfoBancaireService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

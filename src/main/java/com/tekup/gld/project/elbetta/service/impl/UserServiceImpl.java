@@ -6,25 +6,16 @@ import java.util.Optional;
 
 import com.tekup.gld.project.elbetta.model.User;
 import com.tekup.gld.project.elbetta.repository.UserRepository;
+import com.tekup.gld.project.elbetta.service.UserService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
+@AllArgsConstructor
 public class UserServiceImpl implements UserService {
 
-	private UserRepository reposUser;
-	
-
-
-	public UserRepository getReposUser() {
-		return reposUser;
-	}
-
-	public void setReposUser(UserRepository reposUser) {
-		this.reposUser = reposUser;
-
-
-	}
+	private final UserRepository reposUser;
 
 	@Override
 	public List<User> getAllUsers() {
@@ -32,16 +23,12 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User getUserById(long id) {
+	public User getUserById(Long id) {
 		Optional<User> opt = reposUser.findById(id);
-		User user;
 		if (opt.isPresent()) {
-			user = opt.get();
+			return opt.get();
 		}
-		else {
-			throw new NoSuchElementException("User with this id is not found");
-		}
-		return user;
+		throw new NoSuchElementException("User with this id is not found");
 	}
 
 	@Override
@@ -57,18 +44,13 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User deleteUser(long id) {
-		User entity = this.getUserById(id);
-		reposUser.deleteById(id);
-		return entity;
-
+	public User getUserByUsername(String username) {
+		return reposUser.findByUsername(username).orElse(null);
 	}
 
-	@Autowired
-	public UserServiceImpl(UserRepository reposUser) {
-		super();
-		this.reposUser = reposUser;
-
+	@Override
+	public void deleteUser(Long id) {
+		reposUser.deleteById(id);
 	}
 
 

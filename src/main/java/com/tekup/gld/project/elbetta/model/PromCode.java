@@ -14,11 +14,11 @@ import lombok.NoArgsConstructor;
 
 
 
-@Entity
+//@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "product")
+//@Table(name = "product")
 public class PromCode {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

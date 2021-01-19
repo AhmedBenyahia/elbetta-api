@@ -8,15 +8,15 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
+//@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="categories")
+//@Table(name="categories")
 public class Categorie {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	
 	private Long id;
 
 	private String name;

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <fileset-config file-format-version="1.2.0" simple-config="false" sync-formatter="false">
-  <local-check-config name="maven-checkstyle-plugin validate" location="file:/C:/WORKSPACES/Misfat/Back/gestion-api/checkStyle.xml" type="remote" description="maven-checkstyle-plugin configuration validate">
+  <local-check-config name="maven-checkstyle-plugin validate" location="file:/C:/Users/gg/Desktop/projectTekup/elbetta-api/checkStyle.xml" type="remote" description="maven-checkstyle-plugin configuration validate">
+    <property name="checkstyle.header.file" value="C:\Users\gg\Desktop\sts-4.8.1.RELEASE\.metadata\.plugins\org.eclipse.core.resources\.projects\elbetta-api\com.basistech.m2e.code.quality.checkstyleConfigurator\checkstyle-header-validate.txt"/>
     <property name="checkstyle.cache.file" value="${project_loc}/target/checkstyle-cachefile"/>
-    <property name="checkstyle.header.file" value="C:\WORKSPACES\Misfat\Back\.metadata\.plugins\org.eclipse.core.resources\.projects\gestion-api\com.basistech.m2e.code.quality.checkstyleConfigurator\checkstyle-header-validate.txt"/>
   </local-check-config>
   <fileset name="java-sources-validate" enabled="true" check-config-name="maven-checkstyle-plugin validate" local="true">
     <file-match-pattern match-pattern="^src/main/java/.*\.java" include-pattern="true"/>

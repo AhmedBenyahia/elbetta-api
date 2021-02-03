@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 import com.tekup.gld.project.elbetta.model.Product;
+import com.tekup.gld.project.elbetta.model.Store;
 import com.tekup.gld.project.elbetta.service.ProductService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -41,6 +42,18 @@ public class ProductController {
 		return productService.getAllProducts();
 	}
 
+	@GetMapping("/store-product/{storeId}")
+	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+	public List<Product> getStoreProducts(@PathVariable Long storeId) {
+		return productService.getStoreProducts(storeId);
+	}
+
+	@PostMapping("/store-product/")
+	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+	public List<Product> getStoreProducts(@RequestBody Store store) {
+		return productService.getStoreProducts(store);
+	}
+
 	@PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
 	@GetMapping("/get/{id}")
 	public Product getById(@PathVariable("id") Long id) {
@@ -60,7 +73,7 @@ public class ProductController {
 		return productService.createOrUpdateProduct(product);
 	}
 
-	@PreAuthorize("hasRole('ADMIN')")
+	@PreAuthorize("hasRole('ADMIN') or hasRole('USER')")
 	@DeleteMapping("/delete/{id}")
 	public void deleteProduct(@PathVariable("id") Long id) {
 		productService.deleteProduct(id);

@@ -42,7 +42,9 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 				.antMatchers("/login/**").permitAll()
 				.and().httpBasic();
 		http.csrf().disable();
-		http.cors().configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues());	}
+		CorsConfiguration a = new CorsConfiguration().applyPermitDefaultValues();
+		a.addAllowedMethod("DELETE");
+		http.cors().configurationSource(request -> a);	}
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {

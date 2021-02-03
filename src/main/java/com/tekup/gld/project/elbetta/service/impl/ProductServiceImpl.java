@@ -1,11 +1,13 @@
 package com.tekup.gld.project.elbetta.service.impl;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
 import com.tekup.gld.project.elbetta.model.EBUserDetails;
 import com.tekup.gld.project.elbetta.model.Product;
+import com.tekup.gld.project.elbetta.model.Store;
 import com.tekup.gld.project.elbetta.model.User;
 import com.tekup.gld.project.elbetta.repository.ProductRepository;
 import com.tekup.gld.project.elbetta.service.ProductService;
@@ -56,6 +58,22 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public void deleteProduct(Long id) {
 		productRepository.deleteById(id);
+	}
+
+	@Override
+	public List<Product> getStoreProducts(Long storeId) {
+		return productRepository.findByStore_Id(storeId).orElse(new ArrayList<>());
+	}
+
+	@Override
+	public List<Product> getStoreProducts(Store store) {
+		if (store.getId() != null) {
+			return productRepository.findByStore_Id(store.getId()).orElse(new ArrayList<>());
+		}
+		else if (!store.getTitle().isEmpty()) {
+			return productRepository.findByStore_Title(store.getTitle()).orElse(new ArrayList<>());
+		}
+		return new ArrayList<>();
 	}
 
 }

@@ -3,6 +3,7 @@ package com.tekup.gld.project.elbetta.service;
 import java.util.List;
 
 import com.tekup.gld.project.elbetta.model.Product;
+import com.tekup.gld.project.elbetta.model.Store;
 
 /**
  * {@link ProductService } class.
@@ -49,4 +50,20 @@ public interface ProductService {
 	 * @param id the id
 	 */
 	void deleteProduct(Long id);
+
+	/**
+	 * Gets store products.
+	 *
+	 * @param storeId the store id
+	 * @return the store products
+	 */
+	List<Product> getStoreProducts(Long storeId);
+
+	/**
+	 * Gets store products.
+	 *
+	 * @param store the store
+	 * @return the store products
+	 */
+	List<Product> getStoreProducts(Store store);
 }
